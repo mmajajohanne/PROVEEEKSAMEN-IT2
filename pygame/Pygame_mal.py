@@ -28,7 +28,7 @@ pygame.init() # initialize pygames
 #---------Settings-----------------
 window = pygame.display.set_mode(SIZE)
 clock = pygame.time.Clock()
-pygame.display.set_caption("Sisten spill")
+pygame.display.set_caption("Pygame spill") # Kall spillet noe 
 keys = pygame.key.get_pressed()
 
 
