@@ -7,21 +7,27 @@ serviceroboter = []
 
 naeringProsent2022 = []
 naeringer = []
+sysselsette = []
 
 
-with open("roboter.csv") as fil:
+with open("Maria\datasett roboter.csv") as fil:
     filinnhold = csv.reader(fil, delimiter=";")
 
     overskrifteer = next(filinnhold)
 
     for rad in filinnhold:
+        if rad[0] not in sysselsette:
+            sysselsette.append(rad[0])
+
         if rad[1] not in naeringer:
             naeringer.append(rad[1])
+       
 
-        if rad[0] == "Alle sysselsette":
-            tjenesteroboter.append([rad[1],int(rad[2]),int(rad[4]),int(rad[4])-int(rad[2])])
-            serviceroboter.append([rad[1],int(rad[5]),int(rad[7]),int(rad[7])-int(rad[5])]) 
-        else:
+        def leggTilListe(sysselsatte):
+            if rad[0] == sysselsatte:
+                tjenesteroboter.append([rad[1],int(rad[2]),int(rad[3]),int(rad[4])])
+                serviceroboter.append([rad[1],int(rad[5]),int(rad[6]),int(rad[7])])
+        
             """
             antallSysselsatte = 0
             if rad[0] == "10-19 sysselsette":
@@ -30,7 +36,7 @@ with open("roboter.csv") as fil:
                 antallSysselsatte = 35
             """
 
-            naeringProsent2022.append([rad[1],int(rad[4])])
+        naeringProsent2022.append([rad[1],int(rad[4])])
 
     tjenesteroboter.sort(key=lambda x: -x[3]) # , reverse = True hadde også invertert
  
