@@ -2,7 +2,7 @@
 
 """
 Genetic algorithm is an algorithm that can solve problems with no clear 
-solution by generating random solutions and picking the beat results then 
+solution by generating random solutions and picking the best results then 
 applying a crossover and a mutation to the best solutions before starting 
 the process again. 
 Key moments in the code:
